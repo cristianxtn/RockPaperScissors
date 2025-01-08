@@ -11,29 +11,29 @@
             let computerChoice = Math.random();
 
             if(computerChoice < 0.33) {
-                return "rock";
+                return "ROCK";
             }
             else if(computerChoice < 0.66) {
-                return "paper";
+                return "PAPER";
             }
             else {
-                return "scissors";
+                return "SCISSORS";
             }
         }
 
         function getHumanChoice() {
-            let humanChoice = prompt("Rock, Paper, Scissors! Type 'rock', 'paper' or 'scissors':");
+            let humanChoice = prompt("Rock, Paper, Scissors! Type rock, paper or scissors:");
             
             //input validator
             function getBoolean(value) {
                 let validator;
-                if(value == "rock") {
+                if(value.toUpperCase() == "ROCK") {
                     validator = true;
                 }
-                else if(value == "paper") {
+                else if(value.toUpperCase() == "PAPER") {
                     validator = true;
                 }
-                else if(value == "scissors") {
+                else if(value.toUpperCase() == "SCISSORS") {
                     validator = true;
                 }
                 else {
@@ -44,10 +44,14 @@
 
             //loop prompt until it gets a valid input
             while(getBoolean(humanChoice) == false) {
-                humanChoice = prompt("Wrong input! Type 'rock', 'paper' or 'scissors':");
+                humanChoice = prompt("Wrong input! Type rock, paper or scissors:");
             }
 
-            return humanChoice;
+            return humanChoice.toUpperCase();
+        }
+
+        function playRound(computerChoice, humanChoice) {
+
         }
 
         let humanChoice = getHumanChoice();
