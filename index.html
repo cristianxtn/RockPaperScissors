@@ -51,15 +51,44 @@
         }
 
         function playRound(computerChoice, humanChoice) {
+            const win = "You win! " + humanChoice + " beats " + computerChoice + ".";
+            const lose = "You lose! " + computerChoice + " beats " + humanChoice + ".";
+            const tie = "It's a tie! " + computerChoice + " ties with " + humanChoice + ".";
+            let computerScore = 0;
+            let humanScore = 0;
 
+            if(computerChoice == "ROCK" && humanChoice == "PAPER") {
+                console.log(win);
+                humanScore++;
+            } else if(computerChoice == "ROCK" && humanChoice == "SCISSORS") {
+                console.log(lose);
+                computerScore++;
+            } else if(computerChoice == "PAPER" && humanChoice == "ROCK") {
+                console.log(lose);
+                computerScore++;
+            } else if(computerChoice == "PAPER" && humanChoice == "SCISSORS") {
+                console.log(win);
+                humanScore++;
+            } else if(computerChoice == "SCISSORS" && humanChoice == "ROCK") {
+                console.log(win);
+                humanScore++;
+            } else if(computerChoice == "SCISSORS" && humanChoice == "PAPER") {
+                console.log(lose);
+                computerScore++;
+            } else {
+                console.log(tie);
+            }
+
+            console.log("Score: YOU (" + humanScore + "), COMPUTER (" + computerScore + ")");
         }
 
-        let humanChoice = getHumanChoice();
-        let computerScore = 0;
-        let humanScore = 0;
+        const humanSelection = getHumanChoice();
+        const computerSelection = getComputerChoice();
 
-        console.log("Computer: " + getComputerChoice());
-        console.log("You: " + humanChoice);
+        console.log("Computer: " + computerSelection);
+        console.log("You: " + humanSelection);
+
+        playRound(computerSelection, humanSelection);
     </script>
 </body>
 </html>
