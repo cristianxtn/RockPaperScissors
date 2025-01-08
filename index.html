@@ -21,7 +21,39 @@
             }
         }
 
-        console.log(getComputerChoice());
+        function getHumanChoice() {
+            let humanChoice = prompt("Rock, Paper, Scissors! Type rock, paper or scissors:");
+            
+            //input validator
+            function getBoolean(value) {
+                let validator;
+                if(value == "rock") {
+                    validator = true;
+                }
+                else if(value == "paper") {
+                    validator = true;
+                }
+                else if(value == "scissors") {
+                    validator = true;
+                }
+                else {
+                    validator = false;
+                }
+                return validator;
+            }
+
+            //loop prompt until it gets a valid input
+            while(getBoolean(humanChoice) == false) {
+                humanChoice = prompt("Wrong input! Type rock, paper or scissors:");
+            }
+
+            return humanChoice;
+        }
+
+        let humanChoice = getHumanChoice();
+
+        console.log("Computer: " + getComputerChoice());
+        console.log("You: " + humanChoice);
     </script>
 </body>
 </html>
